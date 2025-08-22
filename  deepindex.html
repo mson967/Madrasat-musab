@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musab Bin Umair Memorial</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a5e63;
+            --secondary: #4bb543;
+            --accent: #e9b44b;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 94, 99, 0.8), rgba(26, 94, 99, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a5e63"/><text x="50%" y="50%" font-size="20" text-anchor="middle" fill="%23ffffff" font-family="monospace">MBUM</text></svg>');
+            background-size: cover;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Sections Overview */
+        .sections {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+        
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .section-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Login Section */
+        .login-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .login-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .login-btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .login-btn:hover {
+            background-color: white;
+        }
+        
+        .user-type {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .user-type label {
+            margin: 0 1rem;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-info {
+            margin: 1rem 0;
+        }
+        
+        .social-links {
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-img">MBUM</div>
+                <h1>Musab Bin Umair Memorial</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sections">Sections</a></li>
+                    <li><a href="#login">Login</a></li>
+                    <li><a href="payment.html">Payments</a></li>
+                    <li><a href="registration.html">Registration</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Welcome to Musab Bin Umair Memorial</h2>
+            <p>Providing quality Islamic education and nurturing future generations with knowledge, faith, and character.</p>
+            <a href="#sections" class="btn">Explore Our Sections</a>
+        </div>
+    </section>
+
+    <!-- Sections Overview -->
+    <section class="sections" id="sections">
+        <div class="container">
+            <h2 class="section-title">Our Educational Sections</h2>
+            <div class="section-grid">
+                <div class="section-card">
+                    <div class="card-content">
+                        <h3>Islamiyya 1-6</h3>
+                        <p>Basic Islamic studies for children covering Quran, Hadith, Fiqh, and Islamic history.</p>
+                        <a href="islamiyya.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <div class="card-content">
+                        <h3>Tahfiz</h3>
+                        <p>Memorization of the Holy Quran with proper Tajweed and understanding.</p>
+                        <a href="tahfiz.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <div class="card-content">
+                        <h3>Higher Islamic</h3>
+                        <p>Advanced Islamic studies for in-depth knowledge of Islamic sciences.</p>
+                        <a href="higher-islamic.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <div class="card-content">
+                        <h3>Primary School</h3>
+                        <p>Combining national curriculum with Islamic education for holistic development.</p>
+                        <a href="primary.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <div class="card-content">
+                        <h3>Nursery School</h3>
+                        <p>Early childhood education in a nurturing Islamic environment.</p>
+                        <a href="nursery.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <div class="card-content">
+                        <h3>Mosque Majlis</h3>
+                        <p>Community programs, lectures, and religious gatherings for all ages.</p>
+                        <a href="mosque-majlis.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section class="login-section" id="login">
+        <div class="container">
+            <h2 class="section-title">Student & Staff Portal</h2>
+            <div class="login-container">
+                <div class="user-type">
+                    <label><input type="radio" name="userType" value="student" checked> Student</label>
+                    <label><input type="radio" name="userType" value="staff"> Staff</label>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <button class="login-btn" onclick="login()">Login</button>
+                <p style="margin-top: 1rem;">Don't have an account? <a href="registration.html" style="color: var(--accent);">Register here</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">
+                <div class="logo-img">MBUM</div>
+                <h1>Musab Bin Umair Memorial</h1>
+            </div>
+            <div class="contact-info">
+                <p>123 Education Street, Knowledge City</p>
+                <p>Phone: (123) 456-7890 | Email: info@mbum.edu</p>
+            </div>
+            <div class="social-links">
+                <a href="#">📱</a>
+                <a href="#">💻</a>
+                <a href="#">📧</a>
+            </div>
+            <p>&copy; 2023 Musab Bin Umair Memorial. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Login functionality
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const isStudent = document.querySelector('input[name="userType"]:checked').value === 'student';
+            
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+            
+            // Simulate login process
+            alert(`Logging in as ${isStudent ? 'student' : 'staff'} with username: ${username}`);
+            
+            // Redirect based on user type (simulated)
+            if (isStudent) {
+                // In a real scenario, this would redirect to the student dashboard
+                console.log('Redirecting to student dashboard');
+            } else {
+                // In a real scenario, this would redirect to the staff dashboard
+                console.log('Redirecting to staff dashboard');
+            }
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
